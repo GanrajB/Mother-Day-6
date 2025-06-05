@@ -1,0 +1,24 @@
+class Solution {
+    public ListNode swapNodes(ListNode head, int k) {
+        ListNode temp = head, second = head;
+        //find the kth node from the beginning of list
+        for(int i = 1; i < k; i++)
+            temp = temp.next;
+        
+        ListNode first = temp;
+
+        //find th kth node from the end of the list
+        while(temp.next != null)
+        {
+            temp = temp.next;
+            second = second.next;
+        }
+
+        //swap the value of two nodes
+        int t = first.val;
+        first.val = second.val;
+        second.val = t;
+
+        return head;
+    }
+}
